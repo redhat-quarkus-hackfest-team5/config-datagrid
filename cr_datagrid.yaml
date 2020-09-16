@@ -4,3 +4,7 @@ metadata:
   name: infinispan
 spec:
   replicas: 2
+  service:
+    type: DataGrid
+    container:
+      storage: 2Gi

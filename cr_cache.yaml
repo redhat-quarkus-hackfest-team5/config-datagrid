@@ -7,3 +7,14 @@ spec:
     secretName: basic-auth
   clusterName: infinispan 
   name: authors
+  template: |
+    <infinispan>
+      <cache-container>
+        <distributed-cache name="authors" mode="SYNC">
+          <encoding media-type="application/x-protostream"/>
+          <persistence>
+            <file-store/>
+          </persistence>
+        </distributed-cache>
+      </cache-container>
+    </infinispan>
