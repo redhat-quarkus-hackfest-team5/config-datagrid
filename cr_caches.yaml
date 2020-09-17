@@ -39,3 +39,24 @@ spec:
         </distributed-cache>
       </cache-container>
     </infinispan>
+---
+apiVersion: infinispan.org/v2alpha1
+kind: Cache
+metadata:
+  name: since-id
+spec:
+  adminAuth: 
+    secretName: basic-auth
+  clusterName: infinispan 
+  name: since-id
+  template: |
+    <infinispan>
+      <cache-container>
+        <distributed-cache name="since-id" mode="SYNC">
+          <encoding media-type="application/x-protostream"/>
+          <persistence>
+            <file-store/>
+          </persistence>
+        </distributed-cache>
+      </cache-container>
+    </infinispan>
