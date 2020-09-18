@@ -60,3 +60,24 @@ spec:
         </distributed-cache>
       </cache-container>
     </infinispan>
+---
+apiVersion: infinispan.org/v2alpha1
+kind: Cache
+metadata:
+  name: last-gp
+spec:
+  adminAuth: 
+    secretName: basic-auth
+  clusterName: infinispan 
+  name: last-gp
+  template: |
+    <infinispan>
+      <cache-container>
+        <distributed-cache name="last-gp" mode="SYNC">
+          <encoding media-type="application/x-protostream"/>
+          <persistence>
+            <file-store/>
+          </persistence>
+        </distributed-cache>
+      </cache-container>
+    </infinispan>
